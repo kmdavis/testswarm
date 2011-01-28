@@ -48,9 +48,25 @@
 		return false;
 	};
 
+
+  // Asynchronous Specs (Gilt)
+  if ( typeof ASpec !== "undefine" ) {
+
+    ASpec.afterComplete = function (results) {
+      submit({
+        fail: results.failures,
+        error: results.errors,
+        total: results.total
+      });
+
+    };
+
+    ASpec.expectComplete = window.TestSwarm.heartbeat;
+    window.TestSwarm.heartbeat();
+
 	// QUnit (jQuery)
 	// http://docs.jquery.com/QUnit
-	if ( typeof QUnit !== "undefined" ) {
+  } else if ( typeof QUnit !== "undefined" ) {
 		QUnit.done = function(results){
 			submit({
 				fail: results.failed,

@@ -52,16 +52,14 @@
   // Asynchronous Specs (Gilt)
   if ( typeof ASpec !== "undefine" ) {
 
-    ASpec.afterComplete = function (results) {
+    ASpec.subscribe("complete", function (results) {
       submit({
-        fail: results.failures,
-        error: results.errors,
+        fail: results.failures.length,
+        error: results.errors.length,
         total: results.total
       });
+    }).subscribe("it end", window.TestSwarm.heartbeat);
 
-    };
-
-    ASpec.expectComplete = window.TestSwarm.heartbeat;
     window.TestSwarm.heartbeat();
 
 	// QUnit (jQuery)

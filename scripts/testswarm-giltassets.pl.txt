@@ -1,9 +1,10 @@
 #!/usr/bin/perl
 
+# new git sha is $ARGV[3] ???
+
 # CONFIGURE
 
 # The location of the TestSwarm that you're going to run against.
-
 my $SWARM = "http://testswarm1.qa.ec2.gilt.com";
 
 # Your TestSwarm username.
@@ -20,13 +21,15 @@ my $NUM = 3;
 my $MAX_RUNS = 5;
 
 # The directory in which the checkouts will occur.
-my $BASE_DIR = "/web/assets";
+my $BASE_DIR = "/home/git/assets";
+
+my $ARCHIVE_DIR = "/foo/bar";
 
 # The name of the job that will be submitted
 # (pick a descriptive, but short, name to make it easy to search)
 # Note: The string {REV} will be replaced with the current
 #       commit number/hash.
-my $JOB_NAME = "Assets Commit <a href=\"http://testswarm1.qa.ec2.gilt.com/git/commit/{FREV}\">#{REV}</a>";
+my $JOB_NAME = "Assets Commit <a href=\"http://gblscms.gilt.com/foo/bar/{FREV}\">#{REV}</a>";
 
 # The browsers you wish to run against. Options include:
 #  - "all" all available browsers.
@@ -47,9 +50,10 @@ my %SUITES = ();
 
 # Comment these out if you wish to define a custom set of SUITES above
 ## REPLACE local
-my $SUITE = "http://testswarm1.qa.ec2.gilt.com/git/commit/{FREV}";
+my $SUITE = "http://gblscms.gilt.com:234/{FREV}/path/to/a/file.js";
 
 sub BUILD_SUITES {
+  #git --git-dir=/web/assets/.git ls-files
 	%SUITES = map { /specs\/([\w\/]+).js$/; $1 => "$SUITE/spec/swarm/index.html?specs/$1"; }
 		glob("spec/swarm/specs/*/*.js");
 }
@@ -76,13 +80,17 @@ foreach my $frev ( @revs ) {
 	if ( !exists $done{ $rev } ) {
 		print "New revision: $rev\n" if ( $DEBUG );
 
+    # new: `mkdir $ARCHIVE_DIR/$frev && git archive --remote=/home/git/assets $frev | gtar -x -C $ARCHIVE_DIR/$frev`
+    # chdir("$ARCHIVE_DIR/$frev")
+
 		if ( exists &BUILD_SUITES ) {
 			&BUILD_SUITES();
 		}
 
+		# chdir($BASE_DIR)
+
 		# gilt customization:
-		print "ssh testswarm1.qa.ec2.gilt.com 'cd /var/www/html/git/assets && git checkout master && git pull && git checkout $frev && mkdir ../commit/$frev && cp * -r ../commit/$frev'\n" if ( $DEBUG );
-		`ssh testswarm1.qa.ec2.gilt.com 'cd /var/www/html/git/assets && git checkout master && git pull && git checkout $frev && mkdir ../commit/$frev && cp * -r ../commit/$frev'`;
+		# old: `ssh testswarm1.qa.ec2.gilt.com 'cd /var/www/html/git/assets && git checkout master && git pull && git checkout $frev && mkdir ../commit/$frev && cp * -r ../commit/$frev'`;
 
 		my %props = (
 			"state" => "addjob",

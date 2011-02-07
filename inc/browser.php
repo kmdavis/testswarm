@@ -16,6 +16,10 @@
 		$version = $match[2];
 	}
 
+  if ( preg_match("/.*(chrome)[\/: ]([0-9a-z.]+)/", $lowerUA, $match) ) {
+		$version = $match[2];
+	}
+
 	if ( preg_match("/ms-rtc lm 8/", $lowerUA) ) {
 		$version = "8.0as7.0";
 	}

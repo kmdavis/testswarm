@@ -28,8 +28,12 @@ INSERT INTO `useragents` (`name`, `engine`, `version`, `active`, `current`, `pop
 ('Internet Explorer 6', 'msie', '^6.', 1, 0, 1, 1, 0, 0),
 ('Internet Explorer 7', 'msie', '^7.', 1, 0, 1, 1, 0, 0),
 ('Internet Explorer 8', 'msie', '^8.', 1, 1, 1, 1, 0, 0),
+('Internet Explorer 9', 'msie', '^9.', 1, 1, 1, 1, 0, 0),
 ('Opera 9.6', 'presto', '^2.1', 1, 0, 1, 0, 0, 0),
 ('Opera 10.20', 'presto', '^2.2.15$', 1, 0, 1, 0, 0, 0),
 ('Opera 10.5x', 'presto', '^2.5.', 1, 1, 1, 0, 0, 0),
 ('Opera 10.6x', 'presto', '^2.6.', 1, 1, 1, 0, 0, 0),
-('Chrome', 'chrome', '.*', 1, 1, 1, 1, 0, 0);
+('Opera 11', 'presto', '^2.7.', 1, 1, 1, 0, 0, 0),
+('Chrome 8', 'chrome', '^8.', 1, 1, 1, 1, 0, 0),
+('Chrome 9', 'chrome', '^9.', 1, 1, 1, 1, 0, 0),
+('Chrome 10', 'chrome', '^10.', 1, 1, 1, 1, 0, 0);

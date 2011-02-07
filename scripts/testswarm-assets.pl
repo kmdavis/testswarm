@@ -19,13 +19,13 @@ my $AUTH_TOKEN = "b83959a2a10266e11a75ccf6ca05111503539fa1";
 my $MAX_RUNS = 5;
 
 # Your git repo
-my $REPO = "home/git/assets";
+my $REPO = "/home/git/assets";
 
 # The name of the job that will be submitted
 # (pick a descriptive, but short, name to make it easy to search)
 # Note: The string {REV} will be replaced with the current
 #       commit number/hash.
-my $JOB_NAME = "Assets Commit <a href=\"http://gblscms.gilt.com/$sha\">#$shortsha</a>";
+my $JOB_NAME = "Assets Commit <a href=\"http://gblscms.gilt.com:8888/$sha\">#$shortsha</a>";
 
 # The browsers you wish to run against. Options include:
 #  - "all" all available browsers.
@@ -41,9 +41,10 @@ my $BROWSERS = "popularbeta";
 my $SUITE = "http://gblscms.gilt.com:8888/$sha/spec/swarm/index.html?specs/";
 
 # What specs to run
-my %SUITES = map { /^spec\/swarm\/specs\/([\w\/]+).js$/; $1 => "$SUITE$1" }
-  grep { $_ =~ /^spec\/swarm\/specs/ }
-  split(/\n/, `git --git-dir=$REPO ls-files`);
+my %SUITES = map { /spec\/swarm\/specs\/([\w\/]+).js/; $1 => "$SUITE$1" }
+  split(/\n/, `git --git-dir=$REPO ls-tree -r --name-only $sha spec/swarm/specs`);
+
+$JOB_NAME =~ s/([^A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg;
 
 my %props = (
   "state" => "addjob",
@@ -68,5 +69,5 @@ foreach my $suite ( sort keys %SUITES ) {
             "&urls[]=" . $url;
 }
 
-#print "curl -d '$query' $SWARM\n";
-`curl -d "$query" $SWARM`;
+#print "curl --silent -d '$query' $SWARM\n";
+`curl --silent -d "$query" $SWARM`;

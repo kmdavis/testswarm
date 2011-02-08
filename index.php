@@ -35,6 +35,7 @@ if ( $title ) {
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <?php if ($autorefresh) { ?>
     <meta http-equiv="refresh" content="60">
   <?php } ?>

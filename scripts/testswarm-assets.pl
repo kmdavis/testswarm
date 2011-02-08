@@ -28,7 +28,7 @@ my $REPO = "/home/git/assets";
 # (pick a descriptive, but short, name to make it easy to search)
 # Note: The string {REV} will be replaced with the current
 #       commit number/hash.
-my $JOB_NAME = "Assets Commit <a href=\"http://gblscms.gilt.com:8888/$sha\">$branch #$shortsha</a>";
+my $JOB_NAME = "Assets Commit <a href=\"http://gblscms.gilt.com:8888/$sha/\">$branch #$shortsha</a>";
 
 # The browsers you wish to run against. Options include:
 #  - "all" all available browsers.

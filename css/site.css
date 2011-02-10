@@ -71,6 +71,9 @@ ul.nav li a {
 	width: 780px;
 	position: relative;
 }
+#main.tinder {
+  width: auto;
+}
 
 #main h3 {
 	margin-bottom: 12px;
@@ -255,6 +258,7 @@ table.results td {
 }
 
 table.results td, table.results th.result-header {
+  height: 30px;
   width: 30px;
 }
 

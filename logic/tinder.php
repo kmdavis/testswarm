@@ -6,5 +6,7 @@
 	$scripts = '<script type="text/javascript" src="' . $GLOBALS['contextpath'] . '/js/jquery.js"></script>' .
 		'<script type="text/javascript" src="' . $GLOBALS['contextpath'] . '/js/pretty.js"></script>' .
 		'<script type="text/javascript" src="' . $GLOBALS['contextpath'] . '/js/view.js"></script>';
+
   $autorefresh = true;
+  $extraBodyClass = "tinder";
 ?>

@@ -62,7 +62,7 @@ if ( $title ) {
 	</ul>
 	<h1><a href="<?php echo $contextpath; ?>/"><img src="<?php echo $contextpath; ?>/images/testswarm_logo_wordmark.png" alt="TestSwarm" title="TestSwarm"/></a></h1>
 	<h2><?php echo  $title; ?></h2>
-	<div id="main">
+	<div id="main"<?php if ($extraBodyClass) { ?> class="<?php echo $extraBodyClass ?>"<?php } ?>>
 	<?php } if ( $state && file_exists($contentFile) ) {
 		require $contentFile;
 	} if ( $title ) { ?>

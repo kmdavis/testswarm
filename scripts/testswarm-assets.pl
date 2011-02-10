@@ -24,11 +24,13 @@ my $MAX_RUNS = 5;
 # Your git repo
 my $REPO = "/home/git/assets";
 
+my $message = `git --git-dir=$REPO log -1 --pretty=%s $sha`;
+
 # The name of the job that will be submitted
 # (pick a descriptive, but short, name to make it easy to search)
 # Note: The string {REV} will be replaced with the current
 #       commit number/hash.
-my $JOB_NAME = "Assets Commit <a href=\"http://gblscms.gilt.com:8888/$sha/\">$branch #$shortsha</a>";
+my $JOB_NAME = "$branch commit: $message <a href=\"http://gblscms.gilt.com:8888/$sha/\">#$shortsha</a>";
 
 # The browsers you wish to run against. Options include:
 #  - "all" all available browsers.

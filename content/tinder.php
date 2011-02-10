@@ -100,7 +100,7 @@
 					$last_browser = array();
 					foreach ( $browsers as $browser ) {
 						if ( $last_browser["id"] != $browser["id"] ) {
-							$header .= '<th><div class="browser">' .
+							$header .= '<th class="result-header"><div class="browser">' .
 								'<img src="' . $GLOBALS['contextpath'] . '/images/' . $browser["engine"] .
 								'.sm.png" class="browser-icon ' . $browser["engine"] .
 								'" alt="' . $browser["name"] .

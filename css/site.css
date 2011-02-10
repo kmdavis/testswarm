@@ -254,6 +254,10 @@ table.results td {
 	text-align: right;
 }
 
+table.results td, table.results th.result-header {
+  width: 30px;
+}
+
 table.results a {
 	color: #000;
 }

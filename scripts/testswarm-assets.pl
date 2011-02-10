@@ -30,7 +30,7 @@ my $message = `git --git-dir=$REPO log -1 --pretty=%s $sha`;
 # (pick a descriptive, but short, name to make it easy to search)
 # Note: The string {REV} will be replaced with the current
 #       commit number/hash.
-my $JOB_NAME = "$branch commit: $message <a href=\"http://gblscms.gilt.com:8888/$sha/\">#$shortsha</a>";
+my $JOB_NAME = "$branch commit: <a href=\"http://gblscms.gilt.com:8888/$sha/\">#$shortsha</a> $message";
 
 # The browsers you wish to run against. Options include:
 #  - "all" all available browsers.
@@ -47,6 +47,7 @@ my $SUITE = "http://gblscms.gilt.com:8888/$sha/spec/swarm/index.html?specs/";
 
 # What specs to run
 my %SUITES = map { /spec\/swarm\/specs\/([\w\/]+).js/; $1 => "$SUITE$1" }
+  grep { $_ !~ /aspec_spec/; }
   split(/\n/, `git --git-dir=$REPO ls-tree -r --name-only $sha spec/swarm/specs`);
 
 $JOB_NAME =~ s/([^A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg;

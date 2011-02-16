@@ -50,6 +50,10 @@ my %SUITES = map { /spec\/swarm\/specs\/([\w\/]+).js/; $1 => "$SUITE$1" }
   grep { $_ !~ /aspec_spec/; }
   split(/\n/, `git --git-dir=$REPO ls-tree -r --name-only $sha spec/swarm/specs`);
 
+if (0 == scalar(keys %SUITES)) {
+  exit;
+}
+
 $JOB_NAME =~ s/([^A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg;
 
 my %props = (

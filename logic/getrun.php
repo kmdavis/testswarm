@@ -13,12 +13,12 @@
 
 		$result = mysql_queryf("SELECT url, jobs.name, runs.name FROM runs, jobs WHERE runs.id=%u AND jobs.id=runs.job_id LIMIT 1;", $run_id);
 
-    $git_sha = preg_replace("/([\\da-f]{40})/", "", $result[1]);
-    setcookie("tsa", hash("sha256", $config['system']['salt'] . $git_sha), 0, "", ".gilt.com");
-
 		if ( $row = mysql_fetch_array($result) ) {
 			$url = $row[0];
 			$text = $row[1] . " " . ucfirst($row[2]);
+
+      preg_match("/([\\da-f]{40})/", $row[1], $matches);
+      setcookie("tsa", hash("sha256", $config['system']['salt'] . $matches[0]), 0, "", ".gilt.com");
 		}
 	
 		# Mark the run as "in progress" on the useragent

@@ -34,8 +34,8 @@
 		$owner = ($row[2] == $_SESSION['username']);
 	}
 
-  $git_sha = preg_replace("/([\\da-f]{40})/", "", $job_name);
-  setcookie("tsa", hash("sha256", $config['system']['salt'] . $git_sha), 0, "", ".gilt.com");
+  preg_match("/([\\da-f]{40})/", $job_name, $matches);
+  setcookie("tsa", hash("sha256", $config['system']['salt'] . $matches[0]), 0, "", ".gilt.com");
 
 ?>
 

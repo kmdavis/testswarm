@@ -35,7 +35,7 @@
 	}
 
   preg_match("/([\\da-f]{40})/", $job_name, $matches);
-  setcookie("tsa", hash("sha256", $config['system']['salt'] . $matches[0]), 0, "", ".gilt.com");
+  setcookie("tsa", hash("sha256", $matches[0] . $config['system']['salt']), 0, "", ".gilt.com");
 
 ?>
 

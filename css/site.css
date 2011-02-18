@@ -251,7 +251,7 @@ table.results td.timeout a, table.results td.error a {
 }
 
 table.legend td.notstarted {
-  color: gray;
+  background: gray;
 }
 
 table.results td {

@@ -250,6 +250,10 @@ table.results td.timeout a, table.results td.error a {
 	color: white;
 }
 
+table.legend td.notstarted {
+  color: gray;
+}
+
 table.results td {
 	background: gray;
 	/* padding: 15px 5px; */

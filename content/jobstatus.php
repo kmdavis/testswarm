@@ -142,3 +142,15 @@
 
 	echo "$output</tr>\n</tbody>\n</table>";
 ?>
+
+<table class="results">
+  <tr>
+    <th>Legend</th><td></td>
+    <th>Pass</th><td class='pass'></td>
+    <th>Fail</th><td class='fail'></td>
+    <th>Error</th><td class='error'></td>
+    <th>Timeout</th><td class='timeout'></td>
+    <th>In Progress</th><td class='progress'></td>
+    <th>Not Started</th><td class='notstarted'></td>
+  </tr>
+</table>

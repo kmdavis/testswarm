@@ -229,19 +229,19 @@ table.results div.browser span {
 	display: none;
 }
 
-table.results td.pass {
+table.results td.pass, table.legend td.pass {
 	background: lightgreen;
 }
 
-table.results td.fail {
+table.results td.fail, table.legend td.fail {
 	background: red;
 }
 
-table.results td.progress {
+table.results td.progress, table.legend td.progress {
 	background: yellow;
 }
 
-table.results td.timeout, table.results td.error {
+table.results td.timeout, table.results td.error, table.legend td.timeout, table.legend td.error {
 	background: black;
 	color: white;
 }
@@ -257,7 +257,7 @@ table.results td {
 	text-align: right;
 }
 
-table.results td, table.results th.result-header {
+table.results td, table.results th.result-header, table.legend td {
   height: 30px;
   width: 30px;
 }

@@ -34,6 +34,7 @@ INSERT INTO `useragents` (`name`, `engine`, `version`, `active`, `current`, `pop
 ('Opera 10.5x', 'presto', '^2.5.', 1, 1, 1, 0, 0, 0),
 ('Opera 10.6x', 'presto', '^2.6.', 1, 1, 1, 0, 0, 0),
 ('Opera 11', 'presto', '^2.7.', 1, 1, 1, 0, 0, 0),
-('Chrome 8', 'chrome', '^8.', 1, 1, 1, 1, 0, 0),
+('Chrome 8', 'chrome', '^8.', 0, 1, 1, 1, 0, 0),
 ('Chrome 9', 'chrome', '^9.', 1, 1, 1, 1, 0, 0),
-('Chrome 10', 'chrome', '^10.', 1, 1, 1, 1, 0, 0);
+('Chrome 10', 'chrome', '^10.', 1, 1, 1, 1, 1, 0),
+('Chrome 11', 'chrome', '^11.', 1, 1, 1, 1, 1, 0);

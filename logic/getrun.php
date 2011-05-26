@@ -18,7 +18,7 @@
 			$text = $row[1] . " " . ucfirst($row[2]);
 
       preg_match("/([\\da-f]{40})/", $row[1], $matches);
-      setcookie("tsa", hash("sha256", $matches[0] . $config['system']['salt']), 0, "", ".gilt.com");
+      setcookie("tsa", hash("sha256", $matches[0] . $config['system']['salt']), 0, "/", ".gilt.com");
 		}
 	
 		# Mark the run as "in progress" on the useragent

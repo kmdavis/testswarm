@@ -53,8 +53,11 @@ if ( $title ) {
 		<li><a href="<?php echo $contextpath; ?>/login/">Login</a></li>
 		<li><a href="<?php echo $contextpath; ?>/signup/">Signup</a></li>
 		<?php } ?>
-    <li><a href="/user/giltassets">Results</a></li>
-		<li><a href="http://github.com/jeresig/testswarm">Source Code</a></li>
+    <li>Results:</li>
+    <li><a href="/user/giltassets">Assets</a></li>
+    <li><a href="/user/gilttaste">Taste</a></li>
+    <li><a href="/user/giltcity">City</a></li>
+		<li><a href="http://github.com/kmdavis/testswarm">Source Code</a></li>
 		<li><a href="http://github.com/jeresig/testswarm/issues">Bug Tracker</a></li>
 		<li><a href="http://groups.google.com/group/testswarm">Discuss</a></li>
 		<li><a href="http://twitter.com/testswarm">Updates</a></li>

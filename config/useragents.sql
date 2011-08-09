@@ -4,6 +4,8 @@ INSERT INTO `useragents` (`name`, `engine`, `version`, `active`, `current`, `pop
 ('Firefox 3.5', 'gecko', '^1.9.1[0-9.]*$', 1, 0, 1, 1, 0, 0),
 ('Firefox 3.6', 'gecko', '^1.9.2[0-9.]*$', 1, 1, 1, 1, 0, 0),
 ('Firefox 4.0', 'gecko', '^2.0.', 1, 1, 1, 1, 0, 0),
+('Firefox 5.0', 'gecko', '^5.', 1, 1, 1, 1, 0, 0),
+('Firefox 6.0', 'gecko', '^6.', 1, 1, 1, 1, 1, 0),
 ('Safari 3.1', 'webkit', '^525.19', 1, 0, 1, 0, 0, 0),
 ('Safari 3.2', 'webkit', '^525.2', 1, 0, 1, 0, 0, 0),
 ('Safari 4.0', 'webkit', '^531.', 1, 1, 1, 1, 0, 0),
@@ -29,6 +31,7 @@ INSERT INTO `useragents` (`name`, `engine`, `version`, `active`, `current`, `pop
 ('Internet Explorer 7', 'msie', '^7.', 1, 0, 1, 1, 0, 0),
 ('Internet Explorer 8', 'msie', '^8.', 1, 1, 1, 1, 0, 0),
 ('Internet Explorer 9', 'msie', '^9.', 1, 1, 1, 1, 0, 0),
+('Internet Explorer 10', 'msie', '^10.', 1, 1, 1, 1, 1, 0),
 ('Opera 9.6', 'presto', '^2.1', 1, 0, 1, 0, 0, 0),
 ('Opera 10.20', 'presto', '^2.2.15$', 1, 0, 1, 0, 0, 0),
 ('Opera 10.5x', 'presto', '^2.5.', 1, 1, 1, 0, 0, 0),
@@ -40,4 +43,8 @@ INSERT INTO `useragents` (`name`, `engine`, `version`, `active`, `current`, `pop
 ('Chrome 10', 'chrome', '^10.', 0, 1, 1, 1, 0, 0),
 ('Chrome 11', 'chrome', '^11.', 1, 1, 1, 1, 0, 0),
 ('Chrome 12', 'chrome', '^12.', 1, 1, 1, 1, 1, 0),
-('Chrome 13', 'chrome', '^13.', 1, 1, 1, 1, 1, 0);
+('Chrome 13', 'chrome', '^13.', 1, 1, 1, 1, 1, 0),
+('Chrome 14', 'chrome', '^14.', 1, 1, 1, 1, 1, 0);
+
+
+
